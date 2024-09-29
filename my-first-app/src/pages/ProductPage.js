@@ -1,42 +1,202 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+
+const ProductWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  gap: 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const ImageContainer = styled.div`
+  flex: 1;
+`;
+
+const ProductImage = styled.img`
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+`;
+
+const ProductInfo = styled.div`
+  flex: 1;
+`;
+
+const ProductTitle = styled.h1`
+  font-size: 2rem;
+  margin-bottom: 10px;
+`;
+
+const PriceContainer = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 20px;
+`;
+
+const DiscountedPrice = styled.p`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000; // Changed from #4CAF50 to #000 (black)
+`;
+
+const OriginalPrice = styled.p`
+  font-size: 1rem;
+  color: #888;
+  text-decoration: line-through;
+`;
+
+const Discount = styled.span`
+  font-size: 1rem;
+  color: #f44336;
+  font-weight: bold;
+`;
+
+const ProductDescription = styled.p`
+  margin-bottom: 20px;
+  line-height: 1.6;
+`;
+
+const AddToCartButton = styled.button`
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: #45a049;
+  }
+`;
+
+const ReviewsSection = styled.div`
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+`;
+
+const ReviewsTitle = styled.h2`
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+`;
+
+const ReviewItem = styled.div`
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+`;
+
+const ReviewHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+
+const ReviewerName = styled.span`
+  font-weight: bold;
+  color: #333;
+`;
+
+const ReviewRating = styled.span`
+  color: #000; // Changed from #ffa500 to #000
+  font-weight: bold;
+`;
+
+const ReviewDescription = styled.p`
+  color: #666;
+  line-height: 1.6;
+`;
+
+const NoReviews = styled.p`
+  color: #666;
+  font-style: italic;
+`;
 
 const ProductPage = ({ addToCart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    async function fetchProduct() {
-      const response = await fetch(`https://v2.api.noroff.dev/online-shop/${id}`);
-      const data = await response.json();
-      setProduct(data);
-    }
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(`https://api.noroff.dev/api/v1/online-shop/${id}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch product');
+        }
+        const data = await response.json();
+        setProduct(data);
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      }
+    };
+
     fetchProduct();
   }, [id]);
 
-  if (!product) return <p>Loading...</p>;
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product);
+    }
+  };
 
-  const discount = product.price - product.discountedPrice;
+  if (!product) {
+    return <div>Loading...</div>;
+  }
+
+  const discountPercentage = product.price > product.discountedPrice
+    ? Math.round((1 - product.discountedPrice / product.price) * 100)
+    : 0;
 
   return (
-    <div>
-      <img src={product.imageUrl} alt={product.title} />
-      <h1>{product.title}</h1>
-      <p>{product.description}</p>
-      <p>Price: ${product.discountedPrice}</p>
-      {discount > 0 && <p>Discount: ${discount}</p>}
-      <button onClick={() => addToCart(product)}>Add to Cart</button>
-      <h3>Reviews</h3>
-      {product.reviews.length > 0 ? (
-        <ul>
-          {product.reviews.map(review => (
-            <li key={review.id}>{review.description}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>No reviews available.</p>
-      )}
-    </div>
+    <ProductWrapper>
+      <ImageContainer>
+        <ProductImage src={product.imageUrl} alt={product.title} />
+      </ImageContainer>
+      <ProductInfo>
+        <ProductTitle>{product.title}</ProductTitle>
+        <PriceContainer>
+          <DiscountedPrice>${product.discountedPrice.toFixed(2)}</DiscountedPrice>
+          {discountPercentage > 0 && (
+            <>
+              <OriginalPrice>${product.price.toFixed(2)}</OriginalPrice>
+              <Discount>{discountPercentage}% OFF</Discount>
+            </>
+          )}
+        </PriceContainer>
+        <ProductDescription>{product.description}</ProductDescription>
+        <AddToCartButton onClick={handleAddToCart}>Add to Cart</AddToCartButton>
+        
+        <ReviewsSection>
+          <ReviewsTitle>Customer Reviews</ReviewsTitle>
+          {product.reviews && product.reviews.length > 0 ? (
+            product.reviews.map((review, index) => (
+              <ReviewItem key={index}>
+                <ReviewHeader>
+                  <ReviewerName>{review.username}</ReviewerName>
+                  <ReviewRating>Rating: {review.rating}/5</ReviewRating>
+                </ReviewHeader>
+                <ReviewDescription>{review.description}</ReviewDescription>
+              </ReviewItem>
+            ))
+          ) : (
+            <NoReviews>No reviews yet.</NoReviews>
+          )}
+        </ReviewsSection>
+      </ProductInfo>
+    </ProductWrapper>
   );
 };
 
