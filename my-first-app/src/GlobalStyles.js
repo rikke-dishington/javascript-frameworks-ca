@@ -1,40 +1,23 @@
 // GlobalStyles.js
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
-  /* Reset some default browser styles */
-  *, *::before, *::after {
+const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+  body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  /* Set up the body style */
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
   }
 
-  h1, h2, h3, p {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Link Styles */
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  /* Button styles */
   button {
-    font-family: inherit;
-    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
   }
 `;
 
-export default GlobalStyle;
+export default GlobalStyles;
