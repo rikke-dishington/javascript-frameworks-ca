@@ -1,5 +1,3 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -22,12 +20,13 @@ const NavLinks = styled.div`
   gap: 1rem;
 
   a {
-    color: white;
+    color: var(--color-white);
     text-decoration: none;
     transition: color 0.3s;
 
     &:hover {
-      color: #61DAFB;
+      color: var(--color-white);
+      text-decoration: underline;
     }
   }
 `;
@@ -62,29 +61,4 @@ const Footer = styled.footer`
   text-align: center;
 `;
 
-const Layout = ({ children, cartItemsCount }) => {
-  return (
-    <>
-      <Header>
-        <Nav>
-          <NavLinks>
-            <Link to="/">Home</Link>
-            <Link to="/contact">Contact</Link>
-          </NavLinks>
-          <Link to="/cart">
-            <CartIcon>
-              🛒
-              {cartItemsCount > 0 && <CartCount>{cartItemsCount}</CartCount>}
-            </CartIcon>
-          </Link>
-        </Nav>
-      </Header>
-      <Main>{children}</Main>
-      <Footer>
-        <p>&copy; {new Date().getFullYear()} eCom</p>
-      </Footer>
-    </>
-  );
-};
-
-export default Layout;
+export { Header, Nav, NavLinks, CartIcon, CartCount, Main, Footer };

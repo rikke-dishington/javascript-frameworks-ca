@@ -1,27 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { BlueButton } from '../components/Buttons.styles';
-
-const CheckoutWrapper = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-`;
-
-const Title = styled.h1`
-  margin-bottom: 20px;
-`;
-
-const CartSummary = styled.div`
-  margin-bottom: 20px;
-`;
-
-const Total = styled.p`
-  font-weight: bold;
-`;
-
-const CheckoutButton = styled(BlueButton)``;
+import { CheckoutWrapper, Title, CartSummary, Total, CheckoutButton } from './CheckoutPage.styles';
 
 const CheckoutPage = ({ cart, clearCart }) => {
   const navigate = useNavigate();
