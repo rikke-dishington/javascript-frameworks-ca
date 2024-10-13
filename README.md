@@ -5,11 +5,11 @@ The API you are using for this brief is: https://v2.api.noroff.dev/online-shop
 
 I was tasked to build out the following pages for an eCom store:
 
-Homepage
-Individual product page
-Cart page
-Checkout success page
-Contact page
+* Homepage
+* Individual product page
+* Cart page
+* Checkout success page
+* Contact page
 
 ## Table of Contents
 * [Delivery](#delivery)
