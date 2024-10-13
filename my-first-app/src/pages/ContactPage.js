@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { BlueButton } from '../components/Buttons.styles';
 
 const ContactWrapper = styled.div`
   max-width: 600px;
   margin: 0 auto;
   padding: 40px;
-  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
-  color: #333;
   margin-bottom: 20px;
   text-align: center;
 `;
@@ -29,28 +27,24 @@ const FormGroup = styled.div`
 `;
 
 const Label = styled.label`
-  font-size: 1rem;
   margin-bottom: 5px;
-  color: #555;
 `;
 
 const Input = styled.input`
   padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid;
   border-radius: 4px;
   transition: border-color 0.3s;
 
   &:focus {
     outline: none;
-    border-color: #4CAF50;
   }
 `;
 
 const TextArea = styled.textarea`
   padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
+  font-family: var(--font-primary);
+  border: 1px solid;
   border-radius: 4px;
   resize: vertical;
   min-height: 100px;
@@ -58,28 +52,13 @@ const TextArea = styled.textarea`
 
   &:focus {
     outline: none;
-    border-color: #4CAF50;
   }
 `;
 
-const SubmitButton = styled.button`
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #45a049;
-  }
-`;
+const SubmitButton = styled(BlueButton)``;
 
 const ErrorMessage = styled.p`
-  color: #ff4136;
-  font-size: 0.875rem;
+  color: var(--color-dark-red);
   margin-top: 5px;
 `;
 
@@ -111,7 +90,6 @@ const ContactPage = () => {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form data:', formData);
-      // Here you would typically send the form data to a server
       alert('Message sent successfully!');
       setFormData({ fullName: '', subject: '', email: '', body: '' });
     }

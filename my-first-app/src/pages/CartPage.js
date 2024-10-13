@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { BlueButton, RedButton } from '../components/Buttons.styles';
 
 const CartWrapper = styled.div`
   max-width: 800px;
@@ -30,17 +31,7 @@ const ItemImage = styled.img`
 
 const ItemDetails = styled.div``;
 
-const RemoveButton = styled.button`
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: #d32f2f;
-  }
-`;
+const RemoveButton = styled(RedButton)``;
 
 const Total = styled.p`
   font-size: 1.2rem;
@@ -48,19 +39,9 @@ const Total = styled.p`
   margin-top: 20px;
 `;
 
-const CheckoutButton = styled(Link)`
+const CheckoutButton = styled(BlueButton).attrs({ as: Link })`
   display: inline-block;
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 4px;
-  margin-top: 20px;
-
-  &:hover {
-    background-color: #45a049;
-  }
-`;
+ `;
 
 const CartPage = ({ cart, removeFromCart }) => {
   const total = cart.reduce((sum, item) => sum + item.discountedPrice * item.quantity, 0);
