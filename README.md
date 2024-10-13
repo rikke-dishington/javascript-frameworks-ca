@@ -3,7 +3,7 @@
 ## Brief
 The API you are using for this brief is: https://v2.api.noroff.dev/online-shop
 
-You are tasked with build out the following pages for an eCom store:
+I was tasked to build out the following pages for an eCom store:
 
 Homepage
 Individual product page
