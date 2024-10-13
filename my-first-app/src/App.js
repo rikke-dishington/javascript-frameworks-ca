@@ -52,7 +52,7 @@ function App() {
   };
 
   return (
-    <>
+    <Theme>
       <GlobalStyles />
       <Layout cartItemsCount={cart.reduce((sum, item) => sum + item.quantity, 0)}>
         <Routes>
@@ -64,7 +64,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </Layout>
-    </>
+    </Theme>
   );
 }
 
