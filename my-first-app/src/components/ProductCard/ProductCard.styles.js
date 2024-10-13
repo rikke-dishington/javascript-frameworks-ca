@@ -30,7 +30,7 @@ const ProductPrice = styled.p`
 `;
 
 const ViewProductButton = styled(BlueButton)`
-  width: 100%;
+  width: 80%%;
   margin-top: 10px;
 `;
 
