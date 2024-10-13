@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Theme } from './styles/theme';
 import GlobalStyles from './styles/GlobalStyles';
-import Layout from './components/Layout';
-import Homepage from './pages/Homepage';
-import ProductPage from './pages/ProductPage';
-import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
-import CheckoutSuccessPage from './pages/CheckoutSuccessPage';
-import ContactPage from './pages/ContactPage';
+import Layout from './components/Layout/Layout';
+import HomePage from './pages/HomePage/HomePage';
+import ProductPage from './pages/ProductPage/ProductPage';
+import CartPage from './pages/Cart/CartPage';
+import CheckoutPage from './pages/Cart/CheckoutPage';
+import CheckoutSuccessPage from './pages/Cart/CheckoutSuccessPage';
+import ContactPage from './pages/ContactPage/ContactPage';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -56,7 +56,7 @@ function App() {
       <GlobalStyles />
       <Layout cartItemsCount={cart.reduce((sum, item) => sum + item.quantity, 0)}>
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<ProductPage addToCart={addToCart} />} />
           <Route path="/cart" element={<CartPage cart={cart} removeFromCart={removeFromCart} />} />
           <Route path="/checkout" element={<CheckoutPage cart={cart} clearCart={clearCart} />} />
