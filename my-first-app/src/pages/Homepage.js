@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ProductCard from '../components/ProductCard';
 
-// Styled components for layout
 const PageWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -13,8 +12,7 @@ const SearchBar = styled.input`
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
-  font-size: 16px;
-  border: 1px solid #ddd;
+  border: 1px solid;
   border-radius: 5px;
 `;
 

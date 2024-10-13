@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { BlueButton } from '../components/Buttons.styles';
 
 const Card = styled.div`
+  display: flex;
+  flex-direction: column;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 16px;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.3s;
-
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
+  margin: 16px;
+  width: 250px; // Adjust as needed
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 `;
 
 const ProductImage = styled.img`
@@ -32,22 +31,9 @@ const ProductPrice = styled.p`
   color: #000;
 `;
 
-const ViewProductButton = styled(Link)`
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: #45a049;
-  }
+const ViewProductButton = styled(BlueButton)`
+  width: 100%;
+  margin-top: 10px;
 `;
 
 const ProductCard = ({ product }) => {
@@ -55,8 +41,10 @@ const ProductCard = ({ product }) => {
     <Card>
       <ProductImage src={product.imageUrl} alt={product.title} />
       <ProductTitle>{product.title}</ProductTitle>
-      <ProductPrice>${product.discountedPrice.toFixed(2)}</ProductPrice>
-      <ViewProductButton to={`/product/${product.id}`}>View product</ViewProductButton>
+      <ProductPrice>${product.price.toFixed(2)}</ProductPrice>
+      <ViewProductButton as={Link} to={`/product/${product.id}`}>
+        View Product
+      </ViewProductButton>
     </Card>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import GlobalStyles from './GlobalStyles';
+import { Theme } from './styles/theme';
+import GlobalStyles from './styles/GlobalStyles';
 import Layout from './components/Layout';
 import Homepage from './pages/Homepage';
 import ProductPage from './pages/ProductPage';

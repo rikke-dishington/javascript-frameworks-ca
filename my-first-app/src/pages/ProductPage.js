@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { BlueButton } from '../components/Buttons.styles';
 
 const ProductWrapper = styled.div`
   max-width: 1200px;
@@ -31,7 +32,6 @@ const ProductInfo = styled.div`
 `;
 
 const ProductTitle = styled.h1`
-  font-size: 2rem;
   margin-bottom: 10px;
 `;
 
@@ -43,20 +43,16 @@ const PriceContainer = styled.div`
 `;
 
 const DiscountedPrice = styled.p`
-  font-size: 1.5rem;
   font-weight: bold;
-  color: #000; // Changed from #4CAF50 to #000 (black)
 `;
 
 const OriginalPrice = styled.p`
-  font-size: 1rem;
-  color: #888;
+  color: var(--color-light-grey);
   text-decoration: line-through;
 `;
 
 const Discount = styled.span`
-  font-size: 1rem;
-  color: #f44336;
+  color: var(--color-dark-red);
   font-weight: bold;
 `;
 
@@ -65,19 +61,7 @@ const ProductDescription = styled.p`
   line-height: 1.6;
 `;
 
-const AddToCartButton = styled.button`
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-
-  &:hover {
-    background-color: #45a049;
-  }
-`;
+const AddToCartButton = styled(BlueButton)``;
 
 const ReviewsSection = styled.div`
   margin-top: 40px;
@@ -86,13 +70,12 @@ const ReviewsSection = styled.div`
 `;
 
 const ReviewsTitle = styled.h2`
-  font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--color-dark-grey);
 `;
 
 const ReviewItem = styled.div`
-  border: 1px solid #ddd;
+  border: 1px solid;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
@@ -107,21 +90,18 @@ const ReviewHeader = styled.div`
 
 const ReviewerName = styled.span`
   font-weight: bold;
-  color: #333;
 `;
 
 const ReviewRating = styled.span`
-  color: #000; // Changed from #ffa500 to #000
   font-weight: bold;
 `;
 
 const ReviewDescription = styled.p`
-  color: #666;
+  color: var(--color-light-grey);
   line-height: 1.6;
 `;
 
 const NoReviews = styled.p`
-  color: #666;
   font-style: italic;
 `;
 

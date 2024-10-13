@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { BlueButton } from '../components/Buttons.styles';
 
 const CheckoutWrapper = styled.div`
   max-width: 800px;
@@ -9,7 +10,6 @@ const CheckoutWrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
   margin-bottom: 20px;
 `;
 
@@ -18,31 +18,16 @@ const CartSummary = styled.div`
 `;
 
 const Total = styled.p`
-  font-size: 1.2rem;
   font-weight: bold;
 `;
 
-const CheckoutButton = styled.button`
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-
-  &:hover {
-    background-color: #45a049;
-  }
-`;
+const CheckoutButton = styled(BlueButton)``;
 
 const CheckoutPage = ({ cart, clearCart }) => {
   const navigate = useNavigate();
   const total = cart.reduce((sum, item) => sum + item.discountedPrice * item.quantity, 0);
 
   const handleCheckout = () => {
-    // Here you would typically process the payment
-    // For now, we'll just clear the cart and redirect to the success page
     clearCart();
     navigate('/checkout-success');
   };

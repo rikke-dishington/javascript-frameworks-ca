@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = styled.header`
-  background-color: #333;
-  color: white;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 `;
@@ -42,8 +42,8 @@ const CartCount = styled.span`
   position: absolute;
   top: -10px;
   right: -10px;
-  background-color: #61DAFB;
-  color: #333;
+  background-color: var(--color-white);
+  color: var(--color-dark-grey);
   border-radius: 50%;
   padding: 0.2rem 0.5rem;
   font-size: 0.8rem;
@@ -56,8 +56,8 @@ const Main = styled.main`
 `;
 
 const Footer = styled.footer`
-  background-color: #333;
-  color: white;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
   padding: 1rem;
   text-align: center;
 `;
@@ -81,7 +81,7 @@ const Layout = ({ children, cartItemsCount }) => {
       </Header>
       <Main>{children}</Main>
       <Footer>
-        <p>&copy; {new Date().getFullYear()} Your Online Shop. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} eCom</p>
       </Footer>
     </>
   );
