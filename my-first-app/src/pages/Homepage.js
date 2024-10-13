@@ -25,11 +25,6 @@ const ProductList = styled.div`
   padding: 20px 0;
 `;
 
-const ProductItem = styled.div`
-  break-inside: avoid;
-  margin-bottom: 20px;
-`;
-
 const Homepage = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
