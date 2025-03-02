@@ -2,8 +2,7 @@
 <img width="1325" alt="Screenshot" src="https://github.com/rikke-dishington/javascript-frameworks-ca/blob/main/Screenshot%202025-03-02%20at%2010.20.00.png">
 
 ## Description
-The API you are using for this brief is: https://v2.api.noroff.dev/online-shop
-I was tasked to build out an eCom store.
+An eCom store built using the Noroff API (https://v2.api.noroff.dev/online-shop). This project was developed as part of the JavaScript Frameworks course assignment, featuring a complete shopping experience with product browsing, cart management, and checkout functionality.
 
 ## Table of Contents
 * [Delivery](#delivery)
@@ -22,13 +21,13 @@ I was tasked to build out an eCom store.
 * [Netlify - Hosted application demo link](https://luxury-manatee-260bb8.netlify.app/)
   
 ## Features
-I was tasked to build out the following pages for an eCom store:
+The application includes the following key pages and functionality:
 
-* Homepage
-* Individual product page
-* Cart page
-* Checkout success page
-* Contact page
+* **Homepage** - Browse all available products
+* **Product Page** - View detailed product information
+* **Cart Page** - Manage shopping cart items
+* **Checkout Success** - Order confirmation page
+* **Contact Page** - Get in touch form
 
 ## Technical Stack
 ### Core Technologies
