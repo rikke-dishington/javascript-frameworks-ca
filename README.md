@@ -1,7 +1,7 @@
 # JavaScript Frameworks - Course Assignment
 <img width="1325" alt="Screenshot" src="https://github.com/rikke-dishington/javascript-frameworks-ca/blob/main/Screenshot%202025-03-02%20at%2010.20.00.png">
 
-## Brief
+## Description
 The API you are using for this brief is: https://v2.api.noroff.dev/online-shop
 
 I was tasked to build out the following pages for an eCom store:
@@ -15,11 +15,16 @@ I was tasked to build out the following pages for an eCom store:
 ## Table of Contents
 * [Delivery](#delivery)
 * [Links](#links)
-* [Technology stack](#technology_stack)
+* [Technical stack](#technical_stack)
 * [Hosting services](#hosting_services)
 * [Dependencies](#dependencies)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Getting started](#getting_started)
+* [Development guidelines](#development_guidelines)
+* [Testing](#testing)
+* [Building for production](#building_for_production)
+* [Contributing](#contributing)
 
  ## Delivery
 
