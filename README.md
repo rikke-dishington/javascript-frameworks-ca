@@ -1,4 +1,5 @@
 # JavaScript Frameworks - Course Assignment
+<img width="1325" alt="Screenshot" src="https://github.com/rikke-dishington/javascript-frameworks-ca/blob/main/Screenshot%202025-03-02%20at%2010.20.00.png">
 
 ## Brief
 The API you are using for this brief is: https://v2.api.noroff.dev/online-shop
